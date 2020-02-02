@@ -1,10 +1,16 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
+import { Icon } from 'leaflet'
 // import example from './module-example'
 
-Vue.use(Vuex)
+delete Icon.Default.prototype._getIconUrl
 
+Icon.Default.mergeOptions({
+  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+  iconUrl: require('leaflet/dist/images/marker-icon.png'),
+  shadowUrl: require('leaflet/dist/images/marker-shadow.png')
+})
+Vue.use(Vuex)
 /*
  * If not building with SSR mode, you can
  * directly export the Store instantiation

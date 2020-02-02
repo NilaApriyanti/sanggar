@@ -23,6 +23,13 @@ const routes = [
     ]
   },
   {
+    path: '/postingwardrobe',
+    component: () => import('layouts/menulayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/menusanggar/postingwardrobe.vue') }
+    ]
+  },
+  {
     path: '/menuutama',
     component: () => import('layouts/menulayout.vue'),
     children: [
@@ -41,6 +48,13 @@ const routes = [
     component: () => import('layouts/menulayout.vue'),
     children: [
       { path: '', component: () => import('pages/menusanggar/dancers.vue') }
+    ]
+  },
+  {
+    path: '/postingdancer',
+    component: () => import('layouts/menulayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/menusanggar/postingdancer.vue') }
     ]
   },
   {

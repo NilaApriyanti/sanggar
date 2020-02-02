@@ -18,7 +18,8 @@
           </div>
         </div>
         <q-page-sticky position="bottom-right" :offset="[18, 80]">
-            <q-btn fab icon="add" color="secondary" />
+            <q-btn fab icon="add" color="secondary"
+                to="/inputposting" />
           </q-page-sticky>
     </q-page>
 </template>

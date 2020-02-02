@@ -1,14 +1,62 @@
 <template>
   <q-page-container>
-      <q-page padding class="items-center justify-center">
-          <div class="row absolute-center full-width">
-              <div class="col-md-4 offset-md-4 col-xs-12 q-pb-lg q-pl-md q-pr-md q-pt-sm">
-                <q-card flat class="my-card bg-white text-black">
-                  Wardrobe
+      <q-page>
+          <div class="row full-width">
+              <div class="col-xs-4">
+                <q-card flat class="my-card q-pa-xs bg-white text-black">
+                  <q-img
+                    src="https://placeimg.com/500/300/nature"
+                    :ratio="1"
+                  />
                 </q-card>
               </div>
-
+              <div class="col-xs-4">
+                <q-card flat class="my-card q-pa-xs bg-white text-black">
+                  <q-img
+                    src="https://placeimg.com/500/300/nature"
+                    :ratio="1"
+                  />
+                </q-card>
+              </div>
+              <div class="col-xs-4">
+                <q-card flat class="my-card q-pa-xs bg-white text-black">
+                  <q-img
+                    src="https://placeimg.com/500/300/nature"
+                    :ratio="1"
+                  />
+                </q-card>
+              </div>
           </div>
+          <div class="row full-width">
+              <div class="col-xs-4">
+                <q-card flat class="my-card q-pa-xs bg-white text-black">
+                  <q-img
+                    src="https://placeimg.com/500/300/nature"
+                    :ratio="1"
+                  />
+                </q-card>
+              </div>
+              <div class="col-xs-4">
+                <q-card flat class="my-card q-pa-xs bg-white text-black">
+                  <q-img
+                    src="https://placeimg.com/500/300/nature"
+                    :ratio="1"
+                  />
+                </q-card>
+              </div>
+              <div class="col-xs-4">
+                <q-card flat class="my-card q-pa-xs bg-white text-black">
+                  <q-img
+                    src="https://placeimg.com/500/300/nature"
+                    :ratio="1"
+                  />
+                </q-card>
+              </div>
+          </div>
+          <q-page-sticky position="bottom-right" :offset="[18, 80]">
+            <q-btn fab icon="add" color="secondary"
+                to="/postingwardrobe" />
+          </q-page-sticky>
       </q-page>
   </q-page-container>
 </template>

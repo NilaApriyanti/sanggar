@@ -65,7 +65,8 @@ module.exports = function (ctx) {
         'QFab',
         'QFabAction',
         'QPageSticky',
-        'QUploader'
+        'QUploader',
+        'QImg'
       ],
 
       directives: [

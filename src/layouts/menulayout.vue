@@ -13,18 +13,18 @@
     <br>
     <q-tabs
       v-model="tab"
-      active-color="grey"
+      active-color="primary"
       no-caps
       dense
       shrink
-      class="bg-white text-light-blue-7 fixed-bottom visible mobile-only"
+      class="bg-white text-blue-grey-14 fixed-bottom visible mobile-only"
       >
       <q-route-tab to="/menuutama" name="explore" icon="home" label="Home"/>
       <q-route-tab to="/carisanggar" name="cari" icon="fas fa-search" label="Search">
       </q-route-tab>
       <q-route-tab to="/wardrobesanggar" icon="fas fa-tshirt" label="Wardrobe"/>
       <q-route-tab to="/dancers" name="dancer" icon="fas fa-users" label="Dancer"/>
-      <q-route-tab to="/profil" name="explore" icon="far fa-user" label="Profi"/>
+      <q-route-tab to="/profil" name="profil" icon="far fa-user" label="Profi"/>
     </q-tabs>
   </q-layout>
 </template>
