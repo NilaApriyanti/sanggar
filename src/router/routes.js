@@ -37,6 +37,34 @@ const routes = [
     ]
   },
   {
+    path: '/menuutamaguest',
+    component: () => import('layouts/menulayoutguest.vue'),
+    children: [
+      { path: '', component: () => import('pages/akunguest/menuutamaguest.vue') }
+    ]
+  },
+  {
+    path: '/cariguest',
+    component: () => import('layouts/menulayoutguest.vue'),
+    children: [
+      { path: '', component: () => import('pages/akunguest/cariguest.vue') }
+    ]
+  },
+  {
+    path: '/wardrobeguest',
+    component: () => import('layouts/menulayoutguest.vue'),
+    children: [
+      { path: '', component: () => import('pages/akunguest/wardrobeguest.vue') }
+    ]
+  },
+  {
+    path: '/dancerguest',
+    component: () => import('layouts/menulayoutguest.vue'),
+    children: [
+      { path: '', component: () => import('pages/akunguest/dancerguest.vue') }
+    ]
+  },
+  {
     path: '/inputposting',
     component: () => import('layouts/menulayout.vue'),
     children: [

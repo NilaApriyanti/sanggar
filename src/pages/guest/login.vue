@@ -32,7 +32,7 @@
                   <q-btn class="full-width" rounded :loading="loading" @click="login()" color="light-blue-7" label="Login" />
                 </div>
                 <div class="col-md-3 col-xs-12 col-sm-12">
-                  <q-btn class="full-width" rounded :loading="loading" color="light-blue-7" label="Masuk Sebagai Guest" />
+                  <q-btn class="full-width" rounded :loading="loading" @click="login()" to="/menuutamaguest" color="light-blue-7" label="Masuk Sebagai Guest" />
                 </div>
                 <div class="col-md-3 col-xs-12 col-sm-12">
                   <q-btn class="full-width" no-caps flat :loading="loading" to="/daftar" label="Tdak Punya Akun? Daftar Disini" />
