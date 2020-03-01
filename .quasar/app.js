@@ -21,15 +21,19 @@ import createStore from 'app/src/store/index'
 
 import createRouter from 'app/src/router/index'
 
-export default function () {
+
+
+
+
+export default async function () {
   // create store and router instances
   
   const store = typeof createStore === 'function'
-    ? createStore({Vue})
+    ? await createStore({Vue})
     : createStore
   
   const router = typeof createRouter === 'function'
-    ? createRouter({Vue, store})
+    ? await createRouter({Vue, store})
     : createRouter
   
   // make router instance available in store

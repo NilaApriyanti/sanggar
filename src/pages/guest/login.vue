@@ -32,7 +32,7 @@
                   <q-btn class="full-width" rounded :loading="loading" @click="login()" color="light-blue-7" label="Login" />
                 </div>
                 <div class="col-md-3 col-xs-12 col-sm-12">
-                  <q-btn class="full-width" rounded :loading="loading" @click="login()" to="/menuutamaguest" color="light-blue-7" label="Masuk Sebagai Guest" />
+                  <q-btn class="full-width" rounded :loading="loading" to="/menuutamaguest" color="light-blue-7" label="Masuk Sebagai Guest" />
                 </div>
                 <div class="col-md-3 col-xs-12 col-sm-12">
                   <q-btn class="full-width" no-caps flat :loading="loading" to="/daftar" label="Tdak Punya Akun? Daftar Disini" />
@@ -68,17 +68,18 @@ export default {
           })
           .then(res => {
             if (res.data.sukses) {
-              this.$router.push('/menuutama')
+              this.$q.localStorage.set('data', res.data.user)
+              this.$router.push({ name: 'menuutama' })
               // this.$show(res.data.msg, 'positive')
             } else {
               this.$show(res.data.msg, 'negative')
             }
           })
-          .catch((err) => {
-            console.log(err)
+          .catch(() => {
+            this.$show('Error', 'negative')
           })
       } catch (error) {
-        console.log(error)
+        this.$show('Error', 'negative')
       }
     }
   }

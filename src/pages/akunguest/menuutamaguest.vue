@@ -1,41 +1,62 @@
 <template>
-        <div class="row q-col-gutter-md">
-          <div v-for="(data, i) in list" :key="i" class="q-mt-md">
-            <q-card>
-              <q-card-section class="text-grey-10 row q-gutter-md">
-                <q-icon name="fas fa-user" style="font-size: 1.5rem;"/>
-                <div class="text-h6">{{ data.nama }}</div>
-              </q-card-section>
-              <img src="https://cdn.quasar.dev/img/mountains.jpg">
-
-              <q-card-actions align="around">
-                <q-btn flat round color="red" icon="favorite" />
-                <q-btn flat round color="teal" icon="message" />
-                <q-btn flat round color="primary" icon="share" />
-              </q-card-actions>
-            </q-card>
+    <q-page padding>
+        <div class="row">
+          <div v-for="(data, i) in list" :key="i" class="col-xs-12 q-pt-md">
+            <vs-card actionable class="text-blue-grey-14">
+            <div slot="header" class="row">
+              <vs-avatar/>
+              <h6 class="q-mt-xs">
+                {{ data.username }}
+              </h6>
+            </div>
+              <div slot="media">
+                <img :src="$baseURL + data.gambar">
+              </div>
+              <div>
+                <span>{{ data.caption }}</span>
+              </div>
+              <div slot="footer">
+                <vs-row vs-justify="flex-start">
+                  <vs-button @click="goToDetail(data._id)" type="gradient" class="q-mr-sm" color="danger" icon="info"></vs-button>
+                  <vs-button @click="goToProfile(data.user._id, data.user.username)" color="primary" icon="person"></vs-button>
+                </vs-row>
+              </div>
+            </vs-card>
           </div>
         </div>
+    </q-page>
 </template>
 
 <script>
 export default {
   data () {
     return {
-      list: [
-        {
-          nama: 'Nila'
-        },
-        {
-          nama: 'fdfs'
-        },
-        {
-          nama: 'fdsd'
-        },
-        {
-          nama: 'trert'
-        }
-      ]
+      list: null
+    }
+  },
+  created () {
+    this.getData()
+  },
+  methods: {
+    getData () {
+      try {
+        this.$axios('gambar/all')
+          .then((res) => {
+            if (res.data.sukses) {
+              this.list = res.data.data
+            } else {
+              this.$show(res.data.msg, 'negative')
+            }
+          })
+      } catch (error) {
+        this.$show('Terjadi Kesalahan', 'negative')
+      }
+    },
+    goToDetail (id) {
+      this.$router.push({ name: 'detailPostingGuest', params: { id: id } })
+    },
+    goToProfile (id, username) {
+      this.$router.push({ name: 'profileGuest', params: { id: id, username: username } })
     }
   }
 }

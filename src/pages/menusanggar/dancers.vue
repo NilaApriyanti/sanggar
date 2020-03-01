@@ -2,53 +2,12 @@
   <q-page-container>
       <q-page>
           <div class="row full-width">
-              <div class="col-xs-4">
+              <div class="col-xs-4" v-for="(data, i) in list" :key="i">
                 <q-card flat class="my-card q-pa-xs bg-white text-black">
                   <q-img
-                    src="https://placeimg.com/500/300/nature"
+                    :src="$baseURL + data.gambar"
                     :ratio="1"
-                  />
-                </q-card>
-              </div>
-              <div class="col-xs-4">
-                <q-card flat class="my-card q-pa-xs bg-white text-black">
-                  <q-img
-                    src="https://placeimg.com/500/300/nature"
-                    :ratio="1"
-                  />
-                </q-card>
-              </div>
-              <div class="col-xs-4">
-                <q-card flat class="my-card q-pa-xs bg-white text-black">
-                  <q-img
-                    src="https://placeimg.com/500/300/nature"
-                    :ratio="1"
-                  />
-                </q-card>
-              </div>
-          </div>
-          <div class="row full-width">
-              <div class="col-xs-4">
-                <q-card flat class="my-card q-pa-xs bg-white text-black">
-                  <q-img
-                    src="https://placeimg.com/500/300/nature"
-                    :ratio="1"
-                  />
-                </q-card>
-              </div>
-              <div class="col-xs-4">
-                <q-card flat class="my-card q-pa-xs bg-white text-black">
-                  <q-img
-                    src="https://placeimg.com/500/300/nature"
-                    :ratio="1"
-                  />
-                </q-card>
-              </div>
-              <div class="col-xs-4">
-                <q-card flat class="my-card q-pa-xs bg-white text-black">
-                  <q-img
-                    src="https://placeimg.com/500/300/nature"
-                    :ratio="1"
+                    @click="goToDetail(data._id)"
                   />
                 </q-card>
               </div>
@@ -65,6 +24,29 @@
 export default {
   data () {
     return {
+      list: null
+    }
+  },
+  created () {
+    this.getData()
+  },
+  methods: {
+    getData () {
+      try {
+        this.$axios('dancer/getbyuser/' + this.$q.localStorage.getItem('data').username)
+          .then((res) => {
+            if (res.data.sukses) {
+              this.list = res.data.data
+            } else {
+              this.$show(res.data.msg, 'negative')
+            }
+          })
+      } catch (error) {
+        this.$show('Terjadi Kesalahan', 'negative')
+      }
+    },
+    goToDetail (id) {
+      this.$router.push({ name: 'detaildancer', params: { id: id } })
     }
   }
 }

@@ -13,7 +13,7 @@
 
 import Vue from 'vue'
 
-import {Quasar,QTabs,QTab,QRouteTab,QBar,QBreadcrumbs,QBreadcrumbsEl,QAvatar,QLayout,QHeader,QDrawer,QPageContainer,QPage,QToolbar,QToolbarTitle,QBtn,QIcon,QList,QItem,QItemSection,QItemLabel,QCard,QCardSection,QInput,QCardActions,QBadge,QFab,QFabAction,QPageSticky,QUploader,QImg,Ripple,Notify} from 'quasar'
+import {Quasar,QTabs,QTab,QRouteTab,QBar,QBreadcrumbs,QBreadcrumbsEl,QAvatar,QLayout,QHeader,QDrawer,QPageContainer,QPage,QToolbar,QToolbarTitle,QBtn,QIcon,QList,QItem,QItemSection,QItemLabel,QCard,QCardSection,QInput,QCardActions,QBadge,QFab,QFabAction,QPageSticky,QUploader,QImg,QBanner,QFile,QSeparator,Ripple,Notify,LocalStorage} from 'quasar'
 
 
-Vue.use(Quasar, { config: {},components: {QTabs,QTab,QRouteTab,QBar,QBreadcrumbs,QBreadcrumbsEl,QAvatar,QLayout,QHeader,QDrawer,QPageContainer,QPage,QToolbar,QToolbarTitle,QBtn,QIcon,QList,QItem,QItemSection,QItemLabel,QCard,QCardSection,QInput,QCardActions,QBadge,QFab,QFabAction,QPageSticky,QUploader,QImg},directives: {Ripple},plugins: {Notify} })
+Vue.use(Quasar, { config: {},components: {QTabs,QTab,QRouteTab,QBar,QBreadcrumbs,QBreadcrumbsEl,QAvatar,QLayout,QHeader,QDrawer,QPageContainer,QPage,QToolbar,QToolbarTitle,QBtn,QIcon,QList,QItem,QItemSection,QItemLabel,QCard,QCardSection,QInput,QCardActions,QBadge,QFab,QFabAction,QPageSticky,QUploader,QImg,QBanner,QFile,QSeparator},directives: {Ripple},plugins: {Notify,LocalStorage} })

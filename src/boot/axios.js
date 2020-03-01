@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const axiosinstance = axios.create({
-  baseURL: 'http://192.168.1.21:5100'
+  baseURL: 'http://172.32.1.5:5100'
 })
 
 export default async ({ Vue }) => {

@@ -1,8 +1,8 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header class="bg-white" elevated>
+    <q-header class="light-blue-7" elevated>
       <q-toolbar>
-        <q-toolbar-title class="text-grey-10">
+        <q-toolbar-title class="white">
           Akun Guest
         </q-toolbar-title>
       </q-toolbar>
@@ -19,11 +19,10 @@
       shrink
       class="bg-white text-blue-grey-14 fixed-bottom visible mobile-only"
       >
-      <q-route-tab to="/menuutamaguest" name="explore" icon="home" label="Home"/>
-      <q-route-tab to="/cariguest" name="cari" icon="fas fa-search" label="Search">
-      </q-route-tab>
-      <q-route-tab to="/wardrobeguest" icon="fas fa-tshirt" label="Wardrobe"/>
-      <q-route-tab to="/dancerguest" name="dancer" icon="fas fa-users" label="Dancer"/>
+      <q-route-tab to="/menuutamaguest" name="explore" icon="home"/>
+      <q-route-tab to="/cariguest" name="cari" icon="fas fa-search"/>
+      <q-route-tab to="/wardrobeguest" icon="fas fa-tshirt"/>
+      <q-route-tab to="/dancerguest" name="dancer" icon="fas fa-users"/>
     </q-tabs>
   </q-layout>
 </template>
@@ -35,6 +34,7 @@ export default {
   name: 'MyLayout',
   data () {
     return {
+      tab: 'explore',
       leftDrawerOpen: this.$q.platform.is.desktop
     }
   },

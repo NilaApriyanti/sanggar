@@ -1,40 +1,71 @@
 <template>
-    <q-page padding class="items-center justify-center">
-                <div class="row absolute-center full-width">
-                    <div class="col-md-4 offset-md-4 col-xs-12 q-pb-lg q-pl-md q-pr-md q-pt-sm">
-          <q-card flat class="my-card bg-white text-black">
-            <q-card-section>
-              <div class="text-black text-15">Unggah</div>
-            </q-card-section>
-            <q-card-section>
-                <q-uploader
-                    url="http://localhost:4444/upload"
-                        label="Upload File"
-                        color="Secondary"
-                        square
-                        flat
-                        bordered
-                        style="max-width: 300px"
-                    />
-                <div class="text-blue text-18">Caption</div>
-                <q-input standout v-model="caption">
-                <template v-slot:append>
-                </template>
-                </q-input>
-            </q-card-section>
-            <q-card-section>
-              <div class="row q-col-gutter-xs">
-                <div class="col-md-5 col-xs-12 col-sm-12">
-                  <!-- <router-link style="text-decoration:none;color:teal;" to="/register">Lupa Password ?</router-link> -->
-                </div>
-                <div class="col-md-3 col-xs-12 col-sm-12">
-                  <q-btn class="full-width" rounded :loading="loading" color="light-blue-7" @click="posting()" label="Post" />
-                </div>
-              </div>
-            </q-card-section>
-          </q-card>
-        </div>
-
-                </div>
-            </q-page>
+  <q-page padding class="text-blue-grey-14">
+    <banner msg="Posting Gambar" class="q-mt-md"></banner>
+    <div class="row full-width">
+      <div class="col-xs-12">
+        <q-card flat class="my-card bg-white text-black">
+          <q-card-section>
+            <q-file color="teal" filled v-model="gambar" label="Upload Gambar">
+              <template v-slot:prepend>
+                <q-icon name="cloud_upload" />
+              </template>
+            </q-file>
+            <q-input label="Caption" class="q-mt-md q-mb-md" filled type="text" v-model="caption">
+              <template v-slot:append>
+              </template>
+            </q-input>
+            <vs-button block class="full-width" @click="upload()" color="primary">
+              <i class='bx bxs-paint-roll' ></i> Upload
+            </vs-button>
+          </q-card-section>
+        </q-card>
+      </div>
+    </div>
+  </q-page>
 </template>
+<script>
+import banner from '../../components/banner'
+export default {
+  components: {
+    banner
+  },
+  data () {
+    return {
+      gambar: null,
+      caption: null
+    }
+  },
+  methods: {
+    upload () {
+      const formData = new FormData()
+      formData.append('gambar', this.gambar)
+      formData.append('caption', this.caption)
+      formData.append('username', this.$q.localStorage.getItem('data').username)
+
+      try {
+        this.$axios.post('wardrobe/upload', formData)
+          .then(res => {
+            if (res.data.sukses) {
+              this.$show(res.data.msg, 'positive')
+              this.$router.push({ name: 'wardrobesanggar' })
+            } else {
+              this.$show(res.data.msg, 'negative')
+            }
+          })
+      } catch (error) {
+        this.$show('Terjadi Kesalahan', 'negative')
+      }
+    }
+  }
+}
+</script>
+<style lang="stylus" scoped>
+  .left {
+    background-color: #DC143C;
+    width: 5px;
+    height: 100%;
+  }
+  .red {
+    background-color: rgb(15, 238, 171);
+  }
+</style>

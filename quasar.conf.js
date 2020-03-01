@@ -66,7 +66,10 @@ module.exports = function (ctx) {
         'QFabAction',
         'QPageSticky',
         'QUploader',
-        'QImg'
+        'QImg',
+        'QBanner',
+        'QFile',
+        'QSeparator'
       ],
 
       directives: [
@@ -75,7 +78,8 @@ module.exports = function (ctx) {
 
       // Quasar plugins
       plugins: [
-        'Notify'
+        'Notify',
+        'LocalStorage'
       ]
     },
 

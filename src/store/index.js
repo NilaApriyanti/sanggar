@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import { Icon } from 'leaflet'
+import Vuesax from 'vuesax'
+import 'vuesax/dist/vuesax.css'
+Vue.use(Vuesax, {
+})
 // import example from './module-example'
 
 delete Icon.Default.prototype._getIconUrl
@@ -11,6 +15,8 @@ Icon.Default.mergeOptions({
   shadowUrl: require('leaflet/dist/images/marker-shadow.png')
 })
 Vue.use(Vuex)
+
+Vue.prototype.$baseURL = 'http://172.32.1.5:5100/'
 /*
  * If not building with SSR mode, you can
  * directly export the Store instantiation
